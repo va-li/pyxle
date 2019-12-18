@@ -42,8 +42,8 @@ def main():
 
     for cursor_x in range(0, raster_width):
         for cursor_y in range(0, raster_heigth):
-            random = np.random.randint(cursor_x, cursor_x + 1 + cursor_x * cursor_y)
-            color = colors[((cursor_x + ((random % (cursor_x + 1)) *  cursor_x)) * cursor_y) % len(colors)]
+            random = np.random.randint(cursor_x + 1, cursor_x + 2 + cursor_x * cursor_y)
+            color = colors[((cursor_x + ((cursor_y % (cursor_x + random)) *  cursor_x)) * cursor_y) % len(colors)]
             draw.rectangle(
                 (cursor_x * block_width,
                 cursor_y * block_heigth,
