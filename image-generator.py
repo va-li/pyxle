@@ -32,7 +32,13 @@ def main():
     raster_width = 40
     raster_heigth = 40
 
-    image = create_white_image(raster_width, raster_heigth)
+    block_width = 20
+    block_heigth = 20
+
+    image_width = raster_width * block_width
+    image_heigth = raster_heigth * block_heigth
+
+    image = create_white_image(image_width, image_heigth)
     draw = ImageDraw.Draw(image)
 
     for cursor_x in range(0, raster_width):
@@ -40,10 +46,10 @@ def main():
             random = np.random.randint(cursor_x + 1, cursor_x + 2 + cursor_x * cursor_y)
             color = colors[((cursor_x + ((3 * cursor_x % (3 * cursor_y + 1)) *  cursor_x)) * (cursor_y + cursor_x)) % len(colors)]
             draw.rectangle(
-                (cursor_x,
-                cursor_y,
-                (cursor_x + 1),
-                (cursor_y + 1)),
+                (cursor_x * block_width,
+                cursor_y * block_heigth,
+                (cursor_x + 1) * block_width,
+                (cursor_y + 1) * block_heigth),
                 fill=color)
 
     image.save('./generated-image.png')
