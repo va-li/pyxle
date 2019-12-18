@@ -27,17 +27,12 @@ def main():
     magenta = (255, 0, 255)
     yellow = (255, 255, 0)
 
-    colors = [ black, gray, white, red, green, blue, cyan, magenta, yellow]
+    colors = [ black, gray, white, red, green, blue, cyan, magenta, yellow ]
 
-    raster_width = 20
+    raster_width = 40
     raster_heigth = 40
-    block_width = 1
-    block_heigth = 1
 
-    image_width = raster_width * block_width
-    image_heigth = raster_heigth * block_heigth
-
-    image = create_white_image(image_width, image_heigth)
+    image = create_white_image(raster_width, raster_heigth)
     draw = ImageDraw.Draw(image)
 
     for cursor_x in range(0, raster_width):
@@ -45,10 +40,10 @@ def main():
             random = np.random.randint(cursor_x + 1, cursor_x + 2 + cursor_x * cursor_y)
             color = colors[((cursor_x + ((random % (cursor_x + random)) *  cursor_x)) * cursor_x) % len(colors)]
             draw.rectangle(
-                (cursor_x * block_width,
-                cursor_y * block_heigth,
-                (cursor_x + 1) * block_width,
-                (cursor_y + 1) * block_heigth),
+                (cursor_x,
+                cursor_y,
+                (cursor_x + 1),
+                (cursor_y + 1)),
                 fill=color)
 
     image.save('./generated-image.png')
