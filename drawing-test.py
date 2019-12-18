@@ -24,6 +24,8 @@ def main():
     green = (0, 255, 0)
     blue = (0, 0, 255)
 
+    colors = [ black, gray, white, red, green, blue ]
+
     raster_width = 20
     raster_heigth = 40
     block_width = 10
@@ -37,12 +39,13 @@ def main():
 
     for cursor_x in range(0, raster_width):
         for cursor_y in range(0, raster_heigth):
+            color = colors[cursor_x % len(colors)]
             draw.rectangle(
                 (cursor_x * block_width,
                 cursor_y * block_heigth,
                 (cursor_x + 1) * block_width,
                 (cursor_y + 1) * block_heigth),
-                outline=red)
+                fill=color)
 
     image.save('./generated-image.png')
 
