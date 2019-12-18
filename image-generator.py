@@ -15,6 +15,23 @@ def create_white_image(width, height, rgba_color=None):
     rgba_array = np.array(rgba_array, dtype=np.uint8)
     return Image.fromarray(rgba_array)
 
+def hex_rgb(hex_color: str):
+    if hex_color.startswith('#'):
+        hex_color = hex_color[1:]
+    elif hex_color.startswith('0x'):
+        hex_color = hex_color[2:]
+    
+    assert 6 == len(hex_color)
+
+    r = int(hex_color[0:2], 16)
+    g = int(hex_color[2:4], 16)
+    b = int(hex_color[4:6], 16)
+
+    return (r, g, b)
+
+assert hex_rgb('FF0033') == (255, 0, 51)
+
+
 def main():
 
     black = (0,0,0)
@@ -27,7 +44,11 @@ def main():
     magenta = (255, 0, 255)
     yellow = (255, 255, 0)
 
-    colors = [ black, gray, white, red, green, blue, cyan, magenta, yellow ]
+    retro_palette = [ black, gray, white, red, green, blue, cyan, magenta, yellow ]
+
+    forrest_palette_hex = [ '2B3443', '343446', '343C4A', '545B5C', '59665B', '5D666D', '646B60', '687763', '78846A', '7C9469', '879670', '97A578' ]
+    forrest_palette = list(map(lambda c: hex_rgb(c), forrest_palette_hex))
+    colors = forrest_palette
 
     raster_width = 40
     raster_heigth = 40
