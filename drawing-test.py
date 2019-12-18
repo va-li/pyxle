@@ -42,7 +42,7 @@ def main():
 
     for cursor_x in range(0, raster_width):
         for cursor_y in range(0, raster_heigth):
-            color = colors[(cursor_x + cursor_y) % len(colors)]
+            color = colors[(cursor_x * cursor_y) % len(colors)]
             draw.rectangle(
                 (cursor_x * block_width,
                 cursor_y * block_heigth,
