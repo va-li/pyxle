@@ -40,8 +40,9 @@ def main():
             draw.rectangle(
                 (cursor_x * block_width,
                 cursor_y * block_heigth,
-                cursor_x * (block_width + 1),
-                cursor_y * (block_heigth + 1)), outline=red)
+                (cursor_x + 1) * block_width,
+                (cursor_y + 1) * block_heigth),
+                outline=red)
 
     image.save('./generated-image.png')
 
