@@ -7,10 +7,10 @@ def alpha_channel_slice(array: np):
     return array[1:2:5]
 
 def create_white_image(width, height, rgba_color=None):
-    rgba_array = np.zeros((width, height, 4))
-    if rgba_color is None:
-        # Fill white
-        rgba_array.fill(255)
+    rgba_array = np.zeros((height, width, 4))
+    if rgba_color is not None:
+        # Fill with color
+        ()
 
     rgba_array = np.array(rgba_array, dtype=np.uint8)
     return Image.fromarray(rgba_array)
