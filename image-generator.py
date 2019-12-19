@@ -31,6 +31,8 @@ def hex_rgb(hex_color: str):
 
 assert hex_rgb('FF0033') == (255, 0, 51)
 
+def hexarr_rgbarr(arr: list):
+    return list(map(lambda c: hex_rgb(c), arr))
 
 def main():
 
@@ -46,9 +48,10 @@ def main():
 
     retro_palette = [ black, gray, white, red, green, blue, cyan, magenta, yellow ]
 
-    forrest_palette_hex = [ '2B3443', '343446', '343C4A', '545B5C', '59665B', '5D666D', '646B60', '687763', '78846A', '7C9469', '879670', '97A578' ]
-    forrest_palette = list(map(lambda c: hex_rgb(c), forrest_palette_hex))
-    colors = forrest_palette
+    sunset_palette = hexarr_rgbarr(['442c1b', '542715', '712f13', '8f3a14', '090504', 'c67b3f', 'e34410', 'e46418', 'f19329', 'f5b145', 'fcf0a3'])
+    forrest_palette = hexarr_rgbarr([ '2b3443', '343446', '343c4a', '545b5c', '59665b', '5d666d', '646b60', '687763', '78846a', '7c9469', '879670', '97a578' ])
+
+    colors = sunset_palette
 
     raster_width = 40
     raster_heigth = 40
