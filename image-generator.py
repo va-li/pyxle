@@ -67,10 +67,10 @@ def main():
 
     for x in range(0, raster_width):
         for y in range(0, raster_heigth):
-            corruption = 1
+            corruption = 3
             random = np.random.randint(0, corruption)
             color = colors[(
-                11 * (x % 3) + (y * 11)
+                12 * (x % 5) + (y * 11)
             ) % len(colors) - random]
             draw.rectangle(
                 (x * block_width,
