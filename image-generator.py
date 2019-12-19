@@ -53,8 +53,8 @@ def main():
 
     colors = forrest_palette
 
-    raster_width = 39
-    raster_heigth = 39
+    raster_width = 37
+    raster_heigth = 37
 
     block_width = 20
     block_heigth = 20
@@ -65,15 +65,17 @@ def main():
     image = create_white_image(image_width, image_heigth)
     draw = ImageDraw.Draw(image)
 
-    for cursor_x in range(0, raster_width):
-        for cursor_y in range(0, raster_heigth):
-            random = np.random.randint(cursor_x + 1, cursor_x + 2 + cursor_x * cursor_y)
-            color = colors[((cursor_x + cursor_y) * (cursor_y + 2)) ** 2 % len(colors)]
+    for x in range(0, raster_width):
+        for y in range(0, raster_heigth):
+            random = np.random.randint(1, 3)
+            color = colors[(
+                19 + x * y
+            ) % len(colors) - random]
             draw.rectangle(
-                (cursor_x * block_width,
-                cursor_y * block_heigth,
-                (cursor_x + 1) * block_width,
-                (cursor_y + 1) * block_heigth),
+                (x * block_width,
+                y * block_heigth,
+                (x + 1) * block_width,
+                (y + 1) * block_heigth),
                 fill=color)
 
     image.save('./generated-image.png')
