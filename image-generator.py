@@ -83,11 +83,11 @@ def main():
             o_x = abs(x - (raster_width / 2))
             o_y = abs(y - (raster_heigth / 2))
 
-            radius = 200
+            radius = 100000
 
-            r = int((x**2+y**2) + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            g = int((x**2+y**2) + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            b = int((x**2+y**2) + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            r = int((o_x**2+o_y**2) + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            g = int((o_x**2+o_y**2) + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            b = int((o_x**2+o_y**2) + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
             color = (r, g, b)
             
             draw.rectangle(
