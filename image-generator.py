@@ -50,8 +50,9 @@ def main():
 
     sunset_palette = hexarr_rgbarr(['442c1b', '542715', '712f13', '8f3a14', '090504', 'c67b3f', 'e34410', 'e46418', 'f19329', 'f5b145', 'fcf0a3'])
     forrest_palette = hexarr_rgbarr([ '2b3443', '343446', '343c4a', '545b5c', '59665b', '5d666d', '646b60', '687763', '78846a', '7c9469', '879670', '97a578' ])
+    grassland_palette = hexarr_rgbarr(['1c2d25', '29471a', '3d5227', '5e8069', '60861c', '6b8649', '6c8ba0', '7f9b22', '96aa2e', 'adc645', 'd4d21b', 'e5edf4'])
 
-    colors = forrest_palette
+    colors = grassland_palette
 
     raster_width = 40
     raster_heigth = 40
@@ -70,7 +71,7 @@ def main():
             corruption = 5
             random = np.random.randint(0, corruption)
             color = colors[(
-                (x) + (y)
+                (len(colors) - 2) * (x) + (y)
             ) % len(colors) - random]
             draw.rectangle(
                 (x * block_width,
