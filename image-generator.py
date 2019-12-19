@@ -76,16 +76,18 @@ def main():
 
     for x in range(0, raster_width):
         for y in range(0, raster_heigth):
-            corruption = 1
+            corruption = 30
             random = np.random.randint(0, corruption)
 
             # origin
             o_x = abs(x - (raster_width / 2))
             o_y = abs(y - (raster_heigth / 2))
 
-            r = int(100 * math.sqrt(o_x**2 + o_y**2)) % 256
-            g = int(100 * math.sqrt(o_x**2 + o_y**2)) % 256
-            b = int(100 * math.sqrt(o_x**2 + o_y**2)) % 256
+            radius = 3*(256 / math.sqrt(raster_width**2 + raster_heigth**2))
+
+            r = int(radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            g = int(radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            b = int(radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
             color = (r, g, b)
             
             draw.rectangle(
