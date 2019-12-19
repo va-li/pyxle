@@ -86,8 +86,8 @@ def main():
             radius = 10000 / (math.sqrt((o_x)**2 + (o_y)**2) + 1)
 
             r = int((radius) * math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            g = int((radius) * math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            b = int((radius) * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            g = int((radius) * math.sqrt(o_x**2 + o_y**2) + 10) % 256 - random
+            b = int((radius) * math.sqrt(o_x**2 + o_y**2) + 70) % 256 - random
 
             color = (r, g, b)
 
