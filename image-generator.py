@@ -1,6 +1,7 @@
 from PIL import Image, ImageDraw
 import numpy as np
 import copy
+import math
 
 def alpha_channel_slice(array: np):
     (width, heigth, channels) = np.shape()
@@ -55,8 +56,8 @@ def main():
 
     colors = grassland_palette
 
-    raster_width = 40
-    raster_heigth = 40
+    raster_width = 80
+    raster_heigth = 80
 
     block_width = 20
     block_heigth = 20
@@ -69,9 +70,9 @@ def main():
 
     for x in range(0, raster_width):
         for y in range(0, raster_heigth):
-            corruption = 70
+            corruption = 1
             random = np.random.randint(0, corruption)
-            r = (x ** x + y ** y + random) % 256
+            r = int((256/raster_width) * math.sqrt(x**x + y**y)) % 256
             g = (x ** y + y ** x + random) % 256
             b = (y ** x + x ** y + random) % 256
             color = (r, g, b)
