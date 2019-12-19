@@ -76,7 +76,7 @@ def main():
 
     for x in range(0, raster_width):
         for y in range(0, raster_heigth):
-            corruption = 1
+            corruption = 100
             random = np.random.randint(0, corruption)
 
             # origin
