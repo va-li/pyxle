@@ -67,7 +67,8 @@ def main():
 
     for x in range(0, raster_width):
         for y in range(0, raster_heigth):
-            random = np.random.randint(1, 3)
+            corruption = 1
+            random = np.random.randint(0, corruption)
             color = colors[(
                 19 + x * y
             ) % len(colors) - random]
