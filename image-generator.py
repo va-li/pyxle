@@ -79,9 +79,13 @@ def main():
             corruption = 1
             random = np.random.randint(0, corruption)
 
-            r = int(1000 * math.sqrt(x**2 + y**2)) % 256
-            g = int(1000 * math.sqrt(x**2 + y**2)) % 256
-            b = int(1000 * math.sqrt(x**2 + y**2)) % 256
+            # origin
+            o_x = abs(x - (raster_width / 2))
+            o_y = abs(y - (raster_heigth / 2))
+
+            r = int(4 * math.sqrt(o_x**2 + o_y**2)) % 256
+            g = int(4 * math.sqrt(o_x**2 + o_y**2)) % 256
+            b = int(4 * math.sqrt(o_x**2 + o_y**2)) % 256
             color = (r, g, b)
             
             draw.rectangle(
