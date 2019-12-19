@@ -70,7 +70,7 @@ def main():
             corruption = 5
             random = np.random.randint(0, corruption)
             color = colors[(
-                12 * (x % 5) + (y * 11)
+                (x) + (y)
             ) % len(colors) - random]
             draw.rectangle(
                 (x * block_width,
