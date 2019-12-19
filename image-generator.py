@@ -85,9 +85,9 @@ def main():
 
             radius = 5*(256 / math.sqrt(raster_width**2 + raster_heigth**2))
 
-            r = int(radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            g = int(radius + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            b = int(2 * radius + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            r = int((o_x % 3) * radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            g = int((o_x % 3) * radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            b = int((o_x % 3) * radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
             color = (r, g, b)
             
             draw.rectangle(
