@@ -79,11 +79,11 @@ def main():
             corruption = 1
             random = np.random.randint(0, corruption)
 
-            # origin
-            o_x = abs((x%10) - (raster_width / 2))
-            o_y = abs((y%10) - (raster_heigth / 2))
+            # rasterkorrigiert
+            o_x = abs(x - (raster_width / 2))
+            o_y = abs(y - (raster_heigth / 2))
 
-            radius = 20
+            radius = 1000000 / (math.sqrt((o_x)**2 + (o_y)**2) + 1)
 
             r = int((radius) * math.sqrt(o_x**2 + o_y**2)) % 256 - random
             g = int((radius) * math.sqrt(o_x**2 + o_y**2)) % 256 - random
