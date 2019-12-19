@@ -86,8 +86,8 @@ def main():
             radius = 15
 
             r = int((x**2+y**2) + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            g = int((x**2+y**2) + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            b = int((x**2+y**2) + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            g = int((x**3+y**3) + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            b = int((x**4+y**4) + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
             color = (r, g, b)
             
             draw.rectangle(
