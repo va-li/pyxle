@@ -76,14 +76,14 @@ def main():
 
     for x in range(0, raster_width):
         for y in range(0, raster_heigth):
-            corruption = 1
+            corruption = 255
             random = np.random.randint(0, corruption)
 
             # origin
             o_x = abs(x - (raster_width / 2))
             o_y = abs(y - (raster_heigth / 2))
 
-            radius = 30
+            radius = 15
 
             r = int((x+y)**2 + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
             g = int((x+y)**2 + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
