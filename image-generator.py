@@ -80,8 +80,8 @@ def main():
             random = np.random.randint(0, corruption)
 
             # origin
-            o_x = math.sqrt(x**2 + y**2) - abs(x - (raster_width / 2))
-            o_y = math.sqrt(x**2 + y**2) - abs(y - (raster_heigth / 2))
+            o_x = abs((x%10) - (raster_width / 2))
+            o_y = abs((y%10) - (raster_heigth / 2))
 
             radius = 20
 
