@@ -83,7 +83,7 @@ def main():
             o_x = (x**2 + y**2) + abs(x - (raster_width / 2))
             o_y = (x**2 + y**2) + abs(y - (raster_heigth / 2))
 
-            radius = 30
+            radius = 0.1
 
             r = int((radius) * math.sqrt(o_x**2 + o_y**2)) % 256 - random
             g = int((radius) * math.sqrt(o_x**2 + o_y**2)) % 256 - random
