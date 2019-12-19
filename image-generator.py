@@ -83,9 +83,9 @@ def main():
             o_x = abs(x - (raster_width / 2))
             o_y = abs(y - (raster_heigth / 2))
 
-            r = int(4 * math.sqrt(o_x**2 + o_y**2)) % 256
-            g = int(4 * math.sqrt(o_x**2 + o_y**2)) % 256
-            b = int(4 * math.sqrt(o_x**2 + o_y**2)) % 256
+            r = int(100 * math.sqrt(o_x**2 + o_y**2)) % 256
+            g = int(100 * math.sqrt(o_x**2 + o_y**2)) % 256
+            b = int(100 * math.sqrt(o_x**2 + o_y**2)) % 256
             color = (r, g, b)
             
             draw.rectangle(
