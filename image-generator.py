@@ -56,8 +56,8 @@ def main():
 
     colors = grassland_palette
 
-    raster_width = 80
-    raster_heigth = 80
+    raster_width = 128
+    raster_heigth = 128
 
     block_width = 20
     block_heigth = 20
@@ -76,18 +76,18 @@ def main():
 
     for x in range(0, raster_width):
         for y in range(0, raster_heigth):
-            corruption = 100
+            corruption = 1
             random = np.random.randint(0, corruption)
 
             # origin
             o_x = abs(x - (raster_width / 2))
             o_y = abs(y - (raster_heigth / 2))
 
-            radius = 5*(256 / math.sqrt(raster_width**2 + raster_heigth**2))
+            radius = 30
 
-            r = int(((x + y) % 3) * radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            g = int(((x + y) % 3) * radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            b = int(((x + y) % 3) * radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            r = int((x+y)**2 + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            g = int((x+y)**2 + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            b = int((x+y)**2 + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
             color = (r, g, b)
             
             draw.rectangle(
