@@ -68,13 +68,20 @@ def main():
     image = create_white_image(image_width, image_heigth)
     draw = ImageDraw.Draw(image)
 
+    draw_start_x = int (-1 * (raster_width / 2))
+    draw_end_x = int(raster_width / 2)
+
+    draw_start_y = int (-1 * (raster_width / 2))
+    draw_end_y = int(raster_width / 2)
+
     for x in range(0, raster_width):
         for y in range(0, raster_heigth):
             corruption = 1
             random = np.random.randint(0, corruption)
-            r = int((256/raster_width) * math.sqrt(x**x + y**y)) % 256
-            g = (x ** y + y ** x + random) % 256
-            b = (y ** x + x ** y + random) % 256
+
+            r = int(1000 * math.sqrt(x**2 + y**2)) % 256
+            g = int(1000 * math.sqrt(x**2 + y**2)) % 256
+            b = int(1000 * math.sqrt(x**2 + y**2)) % 256
             color = (r, g, b)
             
             draw.rectangle(
