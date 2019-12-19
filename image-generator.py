@@ -85,15 +85,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-""" 
-im = Image.open("hopper.jpg")
-
-draw = ImageDraw.Draw(im)
-draw.line((0, 0) + im.size, fill=128)
-draw.line((0, im.size[1], im.size[0], 0), fill=128)
-
-# write to stdout
-im.save(sys.stdout, "PNG")
-
-
-random_img('random.png', 300, 150) """
