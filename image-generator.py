@@ -53,8 +53,8 @@ def main():
 
     colors = forrest_palette
 
-    raster_width = 37
-    raster_heigth = 37
+    raster_width = 40
+    raster_heigth = 40
 
     block_width = 20
     block_heigth = 20
@@ -70,7 +70,7 @@ def main():
             corruption = 1
             random = np.random.randint(0, corruption)
             color = colors[(
-                19 + x * y
+                19 * x + 11 * y
             ) % len(colors) - random]
             draw.rectangle(
                 (x * block_width,
