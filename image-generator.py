@@ -69,11 +69,11 @@ def main():
 
     for x in range(0, raster_width):
         for y in range(0, raster_heigth):
-            corruption = 3
+            corruption = 70
             random = np.random.randint(0, corruption)
-            r = (x * y) % 256
-            g = (x ** y) % 256
-            b = (x + y) % 256
+            r = (x ** x + y ** y + random) % 256
+            g = (x ** y + y ** x + random) % 256
+            b = (y ** x + x ** y + random) % 256
             color = (r, g, b)
             
             draw.rectangle(
