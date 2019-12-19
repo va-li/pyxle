@@ -80,17 +80,17 @@ def main():
             random = np.random.randint(0, corruption)
 
             # origin
-            o_x = abs(x - (raster_width / 2))
-            o_y = abs(y - (raster_heigth / 2))
+            o_x = (x+y) + abs(x - (raster_width / 2))
+            o_y = (x+y) + abs(y - (raster_heigth / 2))
 
-            radius = 3
-            j = 6000
+            radius = 30
 
-            r = int(((o_x+j)**2+(o_y+j)**2) + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            g = int(((o_x+j)**2+(o_y+j)**2) + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            b = int(((o_x+j)**2+(o_y+j)**2) + radius * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            r = int((radius) * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            g = int((radius) * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            b = int((radius) * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+
             color = (r, g, b)
-            
+
             draw.rectangle(
                 (x * block_width,
                 y * block_heigth,
