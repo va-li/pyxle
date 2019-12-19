@@ -53,7 +53,7 @@ def main():
     grassland_palette = hexarr_rgbarr(['1c2d25', '29471a', '3d5227', '5e8069', '60861c', '6b8649', '6c8ba0', '7f9b22', '96aa2e', 'adc645', 'd4d21b', 'e5edf4'])
     lemon_candy_palette = hexarr_rgbarr(['ffd88e', 'ff8100', 'ffa100', 'ffb400', 'ffce00', 'ffe26a', 'ffeea5'])
 
-    colors = lemon_candy_palette
+    colors = grassland_palette
 
     raster_width = 40
     raster_heigth = 40
@@ -71,9 +71,11 @@ def main():
         for y in range(0, raster_heigth):
             corruption = 3
             random = np.random.randint(0, corruption)
-            color = colors[(
-                (len(colors) + 7) * (x) + (y)
-            ) % len(colors) - random]
+            r = (x * y) % 256
+            g = (x ** y) % 256
+            b = (x + y) % 256
+            color = (r, g, b)
+            
             draw.rectangle(
                 (x * block_width,
                 y * block_heigth,
