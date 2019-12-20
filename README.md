@@ -2,9 +2,7 @@
 
 Pattern generator for raster based images in Python
 
-<img src="https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/2019-12-19_021819.png" width="150">
-<img src="https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/2019-12-19_233812.png" width="150">
-<img src="https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/2019-12-20_004831.png" width="150">
+<img src="https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/2019-12-19_021819.png" width="150"> <img src="https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/2019-12-19_233812.png" width="150"> <img src="https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/2019-12-20_004831.png" width="150">
 
 ## Installation
 
