@@ -79,13 +79,13 @@ def main():
             corruption = 20
 
             coin = np.random.randint(0,2)
-            random = int(np.random.normal(30 + (coin * np.random.normal(50, 1, 1)[0]), 20, 1)[0])
+            random = int(np.random.normal(10 + (coin * np.random.normal(50, 1, 1)[0]), 20, 1)[0])
 
             # rasterkorrigiert
             o_x = abs(x - (raster_width / 2))
             o_y = abs(y - (raster_heigth / 2))
 
-            radius = 10000 / (math.sqrt((o_x)**2 + (o_y)**2) + 1) / 4
+            radius = 2 * (math.sqrt((o_x)**2 + (o_y)**2) + 1) / 4
 
             r = int((radius) * math.sqrt(o_x**2 + o_y**2)) % 256 - random
             g = int((radius) * math.sqrt(o_x**2 + o_y**2) + r) % 256 - random
