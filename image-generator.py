@@ -76,8 +76,10 @@ def main():
 
     for x in range(0, raster_width):
         for y in range(0, raster_heigth):
-            corruption = 10
-            random = int(np.random.normal(40, corruption, 1)[0])
+            corruption = 20
+
+            coin = np.random.randint(0,2)
+            random = int(np.random.normal(30 + (coin * np.random.normal(50, 1, 1)[0]), 20, 1)[0])
 
             # rasterkorrigiert
             o_x = abs(x - (raster_width / 2))
