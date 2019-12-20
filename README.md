@@ -2,7 +2,7 @@
 
 Pattern generator for raster based images in Python
 
-![Six generated images, tiled together](https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/showcase.png)
+![Lemon Candy](https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/2019-12-19_021819.png) ![Galaxy](https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/2019-12-19_233812.png) ![...? You tell  me](https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/2019-12-20_004831.png)
 
 ## Installation
 

@@ -14,6 +14,7 @@ fi
 cp "generated-image.png" "${IMAGE}"
 
 git add image-generator.py
+git add "${IMAGE}"
 
 git commit -m "snapshot ${CURRENT_TIME} ${COMMENT}"
 
