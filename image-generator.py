@@ -83,7 +83,7 @@ def main():
             
             corruption = {
                 'distribution': 'uniform',
-                'factor': 1
+                'factor': 50
             }
 
             if corruption['distribution'] == 'uniform':
@@ -96,9 +96,9 @@ def main():
             o_x = abs(x - (raster_width / 2))
             o_y = abs(y - (raster_heigth / 2))
 
-            radius = 12 * np.random.normal(30, 2, 1)[0]
+            radius = 12 * np.random.normal(4, 1, 1)[0]
 
-            r = int((radius * o_y) + math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            r = int((radius) + math.sqrt(o_x**2 + o_y**2)) % 256 - random
             g = int((radius * 2)+ math.sqrt(o_x**2 + o_y**2)) % 256 - random
             b = int((radius* 2) + math.sqrt(o_x**2 + o_y**2)) % 256 - random
 
