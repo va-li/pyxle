@@ -56,8 +56,8 @@ def main():
 
     colors = grassland_palette
 
-    raster_width = 128
-    raster_heigth = 128
+    raster_width = 256
+    raster_heigth = 256
 
     block_width = 10
     block_heigth = 10
@@ -82,23 +82,23 @@ def main():
         for y in range(0, raster_heigth):
             
             corruption = {
-                'distribution': 'uniform',
-                'factor': 80
+                'distribution': 'normal',
+                'factor': 40
             }
 
             if corruption['distribution'] == 'uniform':
                 random = np.random.randint(0,corruption['factor'])
             elif corruption['distribution'] == 'normal':
                 coin = np.random.randint(0,2)
-                random = int(np.random.normal(corruption['factor'], 20, 1)[0])
+                random = int(np.random.normal(corruption['factor'], 3, 1)[0])
 
             # rasterkorrigiert
             o_x = abs(x - (raster_width / 2))
             o_y = abs(y - (raster_heigth / 2))
 
-            r = int((o_x*o_y + 6*o_x)) % 256 - random
-            g = int((o_y)**(abs(o_x-o_y))) % 256 - random
-            b = int((x+y)/1.3) % 256 - random
+            r = int(y-x) % 256 - random
+            g = int((x+2*y)) % 256 - random
+            b = int((x+y)/2) % 256 - random
 
             color = (r, g, b)
 
