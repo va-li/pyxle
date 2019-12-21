@@ -56,11 +56,11 @@ def main():
 
     colors = grassland_palette
 
-    raster_width = 128
-    raster_heigth = 128
+    raster_width = 512
+    raster_heigth = 512
 
-    block_width = 20
-    block_heigth = 20
+    block_width = 1
+    block_heigth = 1
 
     image_width = raster_width * block_width
     image_heigth = raster_heigth * block_heigth
@@ -74,22 +74,33 @@ def main():
     draw_start_y = int (-1 * (raster_width / 2))
     draw_end_y = int(raster_width / 2)
 
+    coin = np.random.randint(0,2)
+    random = int(np.random.normal(10 + (coin * np.random.normal(50, 1, 1)[0]), 20, 1)[0])
+
+
     for x in range(0, raster_width):
         for y in range(0, raster_heigth):
-            corruption = 20
+            
+            corruption = {
+                'distribution': 'uniform',
+                'factor': 50
+            }
 
-            coin = np.random.randint(0,2)
-            random = int(np.random.normal(10 + (coin * np.random.normal(50, 1, 1)[0]), 20, 1)[0])
+            if corruption['distribution'] == 'uniform':
+                random = np.random.randint(0,corruption['factor'])
+            elif corruption['distribution'] == 'normal':
+                coin = np.random.randint(0,2)
+                random = int(np.random.normal(corruption['factor'], 20, 1)[0])
 
             # rasterkorrigiert
             o_x = abs(x - (raster_width / 2))
             o_y = abs(y - (raster_heigth / 2))
 
-            radius = 2 * (math.sqrt((o_x)**2 + (o_y)**2) + 1) / 4
+            radius = 1 * (math.sqrt((math.log2((x**y) + 1))**2 + (o_y)**2) + 1) / (x+1)
 
             r = int((radius) * math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            g = int((radius) * math.sqrt(o_x**2 + o_y**2) + r) % 256 - random
-            b = int((radius) * math.sqrt(o_x**2 + o_y**2) - g) % 256 - random
+            g = int((radius) * math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            b = int((radius) * math.sqrt(o_x**2 + o_y**2)) % 256 - random
 
             color = (r, g, b)
 
