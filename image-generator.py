@@ -98,9 +98,9 @@ def main():
 
             radius = 12 * np.random.normal(4, 1, 1)[0]
 
-            r = int((radius) + math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            r = int((radius / 1) + math.sqrt(o_x**2 + o_y**2)) % 256 - random
             g = int((radius * 2)+ math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            b = int((radius* 2) + math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            b = int((radius * 2.9) + math.sqrt(o_x**2 + o_y**2)) % 256 - random
 
             color = (r, g, b)
 
