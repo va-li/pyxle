@@ -96,11 +96,11 @@ def main():
             o_x = abs(x - (raster_width / 2))
             o_y = abs(y - (raster_heigth / 2))
 
-            radius = o_y**(1.1) + 2 * o_x + 9
+            radius = (o_y*o_x)**2 / (o_y*o_x * math.pi + 1)
 
-            r = int((radius) + math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            g = int((radius) + math.sqrt(o_x**2 + o_y**2)) % 256 - random
-            b = int((radius) + math.sqrt(o_x**2 + o_y**2)) % 256 - random
+            r = int((radius) + math.sqrt(o_x**2 + o_y**2) + (o_y*o_x)**0.9) % 256 - random
+            g = int((radius) + math.sqrt(o_x**2 + o_y**2) + (o_y)**1.1) % 256 - random
+            b = int((radius) + math.sqrt(o_x**2 + o_y**2) + (o_x)**1.2) % 256 - random
 
             color = (r, g, b)
 
