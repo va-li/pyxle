@@ -82,7 +82,7 @@ def main():
         for y in range(0, raster_heigth):
             
             corruption = {
-                'distribution': 'normal',
+                'distribution': 'uniform',
                 'factor': 40
             }
 
@@ -96,9 +96,9 @@ def main():
             o_x = abs(x - (raster_width / 2))
             o_y = abs(y - (raster_heigth / 2))
 
-            r = int(y-x) % 256 - random
-            g = int((x+2*y)) % 256 - random
-            b = int((x+y)/2) % 256 - random
+            r = int((x+2*y+math.sqrt(9*x*y + 1))) % 256 - random
+            g = int((x+4*y+math.sqrt(20*x*y + 1))) % 256 - random
+            b = int((x+0.5*y+math.sqrt(100*x*y + 1))) % 256 - random
 
             color = (r, g, b)
 
