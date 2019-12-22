@@ -83,7 +83,7 @@ def main():
             
             corruption = {
                 'distribution': 'uniform',
-                'factor': 40
+                'factor': 80
             }
 
             if corruption['distribution'] == 'uniform':
@@ -97,8 +97,8 @@ def main():
             o_y = abs(y - (raster_heigth / 2))
 
             r = int((x+2*y+math.sqrt(9*x*y + 1))) % 256 - random
-            g = int((x+4*y+math.sqrt(20*x*y + 1))) % 256 - random
-            b = int((x+0.5*y+math.sqrt(100*x*y + 1))) % 256 - random
+            g = int((x+7*y+math.sqrt(40*x*y + 1))) % 256 - random
+            b = int((x+0.8*y+math.sqrt(200*x*y + 1))) % 256 - random
 
             color = (r, g, b)
 
