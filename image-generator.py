@@ -99,7 +99,7 @@ def main():
             shift = 10
 
             r = int(o_x*o_y*10) % 256 - random
-            g = int(math.sqrt((o_x+1)**2+(o_y+1)**2)**(-1) * r * 25) % 256 - random
+            g = int(math.sqrt((o_x+1)**2+(o_y+1)**2)**(-1) * r * 25 + 200) % 256 - random
             b = int(math.sqrt(o_x**2+o_y**2)/1.4) % 256 - random
 
             color = (r, g, b)
