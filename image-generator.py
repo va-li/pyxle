@@ -83,22 +83,24 @@ def main():
             
             corruption = {
                 'distribution': 'uniform',
-                'factor': 80
+                'factor': 1
             }
 
             if corruption['distribution'] == 'uniform':
                 random = np.random.randint(0,corruption['factor'])
             elif corruption['distribution'] == 'normal':
                 coin = np.random.randint(0,2)
-                random = int(np.random.normal(corruption['factor'], 3, 1)[0])
+                random = int(np.random.normal(corruption['factor'], 10, 1)[0])
 
             # rasterkorrigiert
             o_x = abs(x - (raster_width / 2))
             o_y = abs(y - (raster_heigth / 2))
 
-            r = int((x+2*y+math.sqrt(9*x*y + 1))) % 256 - random
-            g = int((x+7*y+math.sqrt(40*x*y + 1))) % 256 - random
-            b = int((x+0.8*y+math.sqrt(200*x*y + 1))) % 256 - random
+            shift = 10
+
+            r = int(o_x*o_y*10) % 256 - random
+            g = int(math.sqrt((o_x+1)**2+(o_y+1)**2)**(-1) * r * 25) % 256 - random
+            b = int(math.sqrt(o_x**2+o_y**2)/1.4) % 256 - random
 
             color = (r, g, b)
 
