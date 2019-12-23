@@ -56,8 +56,8 @@ def main():
 
     colors = grassland_palette
 
-    raster_width = 256
-    raster_heigth = 256
+    raster_width = 500
+    raster_heigth = 500
 
     block_width = 10
     block_heigth = 10
