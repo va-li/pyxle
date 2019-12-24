@@ -56,8 +56,8 @@ def main():
 
     colors = grassland_palette
 
-    raster_width = 500
-    raster_heigth = 500
+    raster_width = 250
+    raster_heigth = 250
 
     block_width = 10
     block_heigth = 10
@@ -83,7 +83,7 @@ def main():
             
             corruption = {
                 'distribution': 'uniform',
-                'factor': 1
+                'factor': 80
             }
 
             if corruption['distribution'] == 'uniform':
@@ -98,9 +98,9 @@ def main():
 
             shift = 10
 
-            r = int(o_x*o_y*10) % 256 - random
-            g = int(math.sqrt((o_x+1)**2+(o_y+1)**2)**(-1) * r * 25 + 200) % 256 - random
-            b = int(math.sqrt(o_x**2+o_y**2)/1.4) % 256 - random
+            r = -60+int(math.sqrt(o_x**math.log((o_y+1)**1.1))*-1.2) % 256 - random
+            g = int((o_x*o_y/100)) % 256 - random
+            b = -80+int((o_x+o_y)*0.8) % 256 - random
 
             color = (r, g, b)
 
