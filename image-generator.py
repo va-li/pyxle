@@ -98,9 +98,9 @@ def main():
 
             shift = 10
 
-            r = -1+int(math.sqrt(o_x**math.log((o_y+o_x*1.8+1)**1.1)+(o_y+o_x)**(8.5))*-1.2) % 256 - int(random * o_x/40 + o_x/8 + o_y/6)
-            g = -90+int(math.sqrt(o_x**math.log((o_y+o_x*1.85+1)**1.1)+(o_y+o_x)**(8.5))*-1.2) % 256 - int(random * o_x/35 + o_y)
-            b = -80+int(math.sqrt(o_x**math.log((o_y+o_x*1.6+1)**1.11)+(o_y+o_x)**(8.50001))*-1.2) % 256 - int(random * o_x/70 + o_x*o_y/100)
+            r = -1+int(math.sqrt(o_x**math.log((o_y+o_x*1.8+1)**1.1)+(o_y+o_x)**(o_x/50))*-1.2) % 256 - int(random * o_x/40 + o_x/8 + o_y/6)
+            g = -90+int(math.sqrt(o_x**math.log((o_y+o_x*1.85+1)**1.1)+(o_y+o_x)**(o_x/50))*-1.2) % 256 - int(random * o_x/35 + o_y)
+            b = -80+int(math.sqrt(o_x**math.log((o_y+o_x*1.6+1)**1.11)+(o_y+o_x)**(o_x/50))*-1.2) % 256 - int(random * o_x/70 + o_x*o_y/100)
 
             color = (r, g, b)
 
