@@ -59,8 +59,8 @@ def main():
     raster_width = 250
     raster_heigth = 250
 
-    block_width = 4
-    block_heigth = 4
+    block_width = 2
+    block_heigth = 2
 
     image_width = raster_width * block_width
     image_heigth = raster_heigth * block_heigth
@@ -76,7 +76,7 @@ def main():
 
 
     frames = []
-    for step in range(50, 90):
+    for step in range(100, -1, -1):
 
         image = create_white_image(image_width, image_heigth)
         draw = ImageDraw.Draw(image)
