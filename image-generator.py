@@ -59,14 +59,11 @@ def main():
     raster_width = 250
     raster_heigth = 250
 
-    block_width = 10
-    block_heigth = 10
+    block_width = 4
+    block_heigth = 4
 
     image_width = raster_width * block_width
     image_heigth = raster_heigth * block_heigth
-
-    image = create_white_image(image_width, image_heigth)
-    draw = ImageDraw.Draw(image)
 
     draw_start_x = int (-1 * (raster_width / 2))
     draw_end_x = int(raster_width / 2)
@@ -78,40 +75,48 @@ def main():
     random = int(np.random.normal(10 + (coin * np.random.normal(50, 1, 1)[0]), 20, 1)[0])
 
 
-    for x in range(0, raster_width):
-        for y in range(0, raster_heigth):
-            
-            corruption = {
-                'distribution': 'uniform',
-                'factor': 45
-            }
+    frames = []
+    for step in range(50, 90):
 
-            if corruption['distribution'] == 'uniform':
-                random = np.random.randint(0,corruption['factor'])
-            elif corruption['distribution'] == 'normal':
-                coin = np.random.randint(0,2)
-                random = int(np.random.normal(corruption['factor'], 10, 1)[0])
+        image = create_white_image(image_width, image_heigth)
+        draw = ImageDraw.Draw(image)
 
-            # rasterkorrigiert
-            o_x = abs(x - (raster_width / 2))
-            o_y = abs(y - (raster_heigth / 2))
+        for x in range(0, raster_width):
+            for y in range(0, raster_heigth):
+                
+                corruption = {
+                    'distribution': 'uniform',
+                    'factor': 45
+                }
 
-            shift = 10
+                if corruption['distribution'] == 'uniform':
+                    random = np.random.randint(0,corruption['factor'])
+                elif corruption['distribution'] == 'normal':
+                    coin = np.random.randint(0,2)
+                    random = int(np.random.normal(corruption['factor'], 10, 1)[0])
 
-            r = -1+int(math.sqrt(o_x**math.log((o_y+o_x*1.8+1)**1.1)+(o_y+o_x)**(o_x/50))*-1.2) % 256 - int(random * o_x/40 + o_x/8 + o_y/6)
-            g = -90+int(math.sqrt(o_x**math.log((o_y+o_x*1.85+1)**1.1)+(o_y+o_x)**(o_x/50))*-1.2) % 256 - int(random * o_x/35 + o_y)
-            b = -80+int(math.sqrt(o_x**math.log((o_y+o_x*1.6+1)**1.11)+(o_y+o_x)**(o_x/50))*-1.2) % 256 - int(random * o_x/70 + o_x*o_y/100)
+                # rasterkorrigiert
+                o_x = abs(x - (raster_width / 2))
+                o_y = abs(y - (raster_heigth / 2))
 
-            color = (r, g, b)
+                shift = 10
 
-            draw.rectangle(
-                (x * block_width,
-                y * block_heigth,
-                (x + 1) * block_width,
-                (y + 1) * block_heigth),
-                fill=color)
+                r = -1+int(math.sqrt(o_x**math.log((o_y+o_x*1.8+1)**1.1)+(o_y+o_x)**((step/10)+0.5))*-1.2) % 256 - int(random * o_x/40 + o_x/8 + o_y/6)
+                g = -90+int(math.sqrt(o_x**math.log((o_y+o_x*1.85+1)**1.1)+(o_y+o_x)**((step/10)+0.5))*-1.2) % 256 - int(random * o_x/35 + o_y)
+                b = -80+int(math.sqrt(o_x**math.log((o_y+o_x*1.6+1)**1.11)+(o_y+o_x)**((step/10)+0.50001))*-1.2) % 256 - int(random * o_x/70 + o_x*o_y/100)
 
-    image.save('./generated-image.png')
+                color = (r, g, b)
+
+                draw.rectangle(
+                    (x * block_width,
+                    y * block_heigth,
+                    (x + 1) * block_width,
+                    (y + 1) * block_heigth),
+                    fill=color)
+        frames.append(image)
+
+    frames[0].save('animation.gif', format='GIF', append_images=frames[1:], save_all=True, duration=100, loop=0)
+    #image.save('./generated-image.png')
 
 if __name__ == "__main__":
     main()
