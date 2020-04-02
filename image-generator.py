@@ -83,7 +83,7 @@ def main():
             
             corruption = {
                 'distribution': 'uniform',
-                'factor': 80
+                'factor': 45
             }
 
             if corruption['distribution'] == 'uniform':
@@ -98,9 +98,9 @@ def main():
 
             shift = 10
 
-            r = -60+int(math.sqrt(o_x**math.log((o_y+1)**1.1))*-1.2) % 256 - random
-            g = int((o_x*o_y/100)) % 256 - random
-            b = -80+int((o_x+o_y)*0.8) % 256 - random
+            r = -10+int(math.sqrt(o_x**math.log((o_y+o_x*1.7+1)**1.1)+(o_y+o_x)**(9))*-1.2) % 256 - int(random * o_x/40)
+            g = -50+int(math.sqrt(o_x**math.log((o_y+o_x*1.75+1)**1.1)+(o_y+o_x)**(9))*-1.2) % 256 - int(random * o_x/30 + o_y)
+            b = -90+int(math.sqrt(o_x**math.log((o_y+o_x*1.5+1)**1.11)+(o_y+o_x)**(9))*-1.2) % 256 - int(random * o_x/50 + x*y/2)
 
             color = (r, g, b)
 
