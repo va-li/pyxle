@@ -100,7 +100,7 @@ def main():
 
             r = -10+int(math.sqrt(o_x**math.log((o_y+o_x*1.7+1)**1.1)+(o_y+o_x)**(9))*-1.2) % 256 - int(random * o_x/40)
             g = -50+int(math.sqrt(o_x**math.log((o_y+o_x*1.75+1)**1.1)+(o_y+o_x)**(9))*-1.2) % 256 - int(random * o_x/30 + o_y)
-            b = -90+int(math.sqrt(o_x**math.log((o_y+o_x*1.5+1)**1.11)+(o_y+o_x)**(9))*-1.2) % 256 - int(random * o_x/50 + x*y/2)
+            b = -90+int(math.sqrt(o_x**math.log((o_y+o_x*1.5+1)**1.11)+(o_y+o_x)**(9))*-1.2) % 256 - int(random * o_x/50 + x*y/3)
 
             color = (r, g, b)
 
