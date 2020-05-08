@@ -1,8 +1,10 @@
-# pyxle
+# Papyxle
 
 Pattern generator for raster based images in Python
 
 <img src="https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/2019-12-19_233812.png" width="150"> <img src="https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/2019-12-23_233318.png" width="150"> <img src="https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/2019-12-19_021819.png" width="150"> <img src="https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/2020-04-02_224843.png" width="150">
+
+<img src="https://raw.githubusercontent.com/va-li/pyxle/master/snapshots/animation.gif" width="300">
 
 ## Installation
 
